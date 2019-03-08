@@ -47,27 +47,27 @@ var Translations = {
      */
     "CtaButtonSettings": {
         "button1": {
-            "card": "d1b4d742",
+            "card": "17fb1654",
             "label": "Contact",
             "icon": "contact"
         },
         "button2": {
-            "card": "d1b4d742",
+            "url": "http://www.y1t.com/",
             "label": "Website",
             "icon": "website"
         },
         "button3": {
-            "card": "d1b4d742",
+            "card": "956c7c5a",
             "label": "Email",
             "icon": "email"
         },
         "button4": {
-            "card": "d1b4d742",
+            "card": "0477cd97",
             "label": "Save",
             "icon": "save"
         },
         "button5": {
-            "url": "http://example.com/",
+            "card": "0567ee2e",
             "label": "Share",
             "icon": "share"
         }
