@@ -40,7 +40,8 @@
 }
 
 .top-wrapper {
-    background: #717171 url("../images/background_tile.png");
+    background: #717171 url("../images/background_2.jpg");
+	background-size: cover;
 }
 
 .fullscreen .top-wrapper {
@@ -62,7 +63,7 @@
     height:75px;
     margin: 10px 0 0;
     background: url("../images/logo.png") no-repeat;
-    background-position: left;
+    background-position: center;
     background-size: contain;
     float:left;
 }
