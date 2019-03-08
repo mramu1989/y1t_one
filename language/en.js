@@ -116,7 +116,10 @@ var Translations = {
         {
             "label": "Welcome",
             "states": [
-                {   "cardId": "f17a656d", "width": 15    }
+                {
+                    "cardId": "START",
+                    "width": 20
+                }
             ]
         },		
         {
