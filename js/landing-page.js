@@ -589,8 +589,9 @@ var LanguageSelector = {
         });
     },
 
-    updateLanguage: function(langCode) {
+    updateLanguage: function (langCode) {
         Timeline.render(LanguageSelector.currentLanguageObj.ChapterSettings);
+
         $("#jsTopWrapper").removeClass("top-wrapper--no-cta top-wrapper--no-promo");
         $("#jsBottomWrapper").removeClass("bottom-wrapper--no-cta bottom-wrapper--no-promo");
 
@@ -621,7 +622,7 @@ var LanguageSelector = {
         });
 
         //Updates the lang tag at the top of the index.php html tag
-        LanguageSelector.updateLangTag(langCode);
+        LanguageSelector.updateLangTag(LanguageSelector.currentLanguageCode);
 
         /*
         * If the iframe is present and its src path already contains language=xx
@@ -1267,6 +1268,8 @@ var Timeline = {
 
     progress: 0,
 
+    currentIndustry: null,
+
     /**
      * Initialise the timeline
      *
@@ -1688,6 +1691,13 @@ var VideoPlayerInterface = {
 
     firstRun: true,
 
+    pageData: {
+        name: '',
+        business: '',
+        industryState: 'business-challenges',
+        currentLanguageObj: {}
+    },
+
     /**
      * Initialise the video player interface.
      * This class is a proxy that handles all interaction with the video player itself
@@ -1779,19 +1789,83 @@ var VideoPlayerInterface = {
      * Gets the name property from data-dict-name. Updates prepared for text with name if exists
      */
     updatePreparedForName: function() {
-        var preparedForText = LanguageSelector.getTextByKey("PreparedForText");
-        var nameProperty = $("#jsPreparedForName").data("dict-name");
-        var preparedName = VideoPlayerInterface.RTCVisit.videoVisitData[nameProperty];
+        var firstName = VideoPlayerInterface.RTCVisit.videoVisitData.user_first_name || '';
+        var lastName = VideoPlayerInterface.RTCVisit.videoVisitData.user_last_name || '';
+        var businessName = VideoPlayerInterface.RTCVisit.videoVisitData.user_business_name || '';
 
-        if (preparedName != null && preparedName.length > 0) {
-            if ($("#jsPreparedFor").html() !== preparedForText) {
-                $("#jsPreparedFor").html(preparedForText + " ");
-            }
+        if (firstName && lastName && businessName) {
+            var name = firstName + " " + lastName;
 
-            if ($("#jsPreparedForName").html() !== preparedName) {
-                $("#jsPreparedForName").html(preparedName);
+            if (name != VideoPlayerInterface.pageData.name || businessName != VideoPlayerInterface.pageData.business || VideoPlayerInterface.pageData.currentLanguageObj != LanguageSelector.currentLanguageObj) {
+                VideoPlayerInterface.pageData.name = name;
+                VideoPlayerInterface.pageData.business = businessName;
+                VideoPlayerInterface.pageData.currentLanguageObj = LanguageSelector.currentLanguageObj;
+
+                //Update player text bar
+                var jsPerson = $('#jsPerson');
+                if (VideoPlayerInterface.pageData.name.length > 0 && VideoPlayerInterface.pageData.business.length > 0) {
+                    var forText = LanguageSelector.getTextByKey("For");
+                    var fromText = LanguageSelector.getTextByKey("From");
+                    if(LanguageSelector.currentLanguageCode == 'ja') {
+                        jsPerson.html(VideoPlayerInterface.pageData.business + " " + fromText + " " + lastName + " " + firstName + " " + forText);
+                    } else {
+                        jsPerson.html(forText + " " + VideoPlayerInterface.pageData.name + " " + fromText + " " + VideoPlayerInterface.pageData.business);
+                    }
+                } else {
+                    jsPerson.html("&nbsp;");
+                }
             }
         }
+    },
+
+    /**
+     * Update timeline states
+     */
+    updateStates: function() {
+        var industry = VideoPlayerInterface.RTCVisit.videoVisitData.user_industry_vertical,
+            states = {
+                "healthcare": "587fee66",
+                "insurance": "ec1aa5ec",
+                "finance": "e23ff91c",
+                "telco": "ae7406b8",
+                "generic": "87cb71eb"
+            };
+
+        if (industry == Timeline.currentIndustry) {
+            return;
+        }
+
+        var chapterSettings = $.extend(true, {}, LanguageSelector.currentLanguageObj.ChapterSettings);
+
+        /**
+         * Loops chapters array to find the business challenges chapter so that the sub sections can be updated
+         * based on the selected industry
+         *
+         * @param {number} i       Array index
+         * @param {Object} chapter Chapter data
+         *
+         * @returns {boolean}
+         */
+        $.each(chapterSettings, function loopChapters(i, chapter) {
+            if (chapter.states[1] && chapter.states[1].cardId == "business-challenges") {
+                chapter.states[1].cardId = states[industry];
+
+                if (industry == "finance") {
+                    chapter.states[0].width = 1.8;
+                    chapter.states[1].width = 16.4;
+                } else if (industry == "generic") {
+                    chapter.states[1].width = 22;
+                    chapter.states[2].width = 0;
+                } else {
+                    chapter.states[2].cardId = states.generic;
+                }
+
+                return false;
+            }
+        });
+
+        Timeline.render(chapterSettings);
+        Timeline.currentIndustry = industry;
     },
 
     /**
@@ -1800,6 +1874,7 @@ var VideoPlayerInterface = {
     getVisitData: function() {
         VideoPlayerInterface.RTCVisit = VideoPlayerInterface.iframeWindow.RTCVisit;
         VideoPlayerInterface.updatePreparedForName();
+        VideoPlayerInterface.updateStates();
     },
 
     /**
@@ -1856,9 +1931,6 @@ var VideoPlayerInterface = {
             VideoPlayerInterface.iframeWindow.rtc.player.controls.resume();
         },
 
-        /**
-         * Pauses the video
-         */
         pause: function() {
             VideoPlayerInterface.iframeWindow.rtc.player.controls.pause();
         },
@@ -2203,7 +2275,7 @@ var iFrameEvents = {
 
         if ($elem.length > 0) {
             CtaButtons.closeAllSideCards();
-            VideoPlayerInterface.actions.pause();
+            VideoPlayerInterface.actions.pause(false);
             Timeline.disableTimelineIfNecessary();
             $elem.show();
         }
@@ -2270,7 +2342,7 @@ var MobileOrientationHandler = {
      */
     scrollToVideo: function() {
         if (MobileOrientationHandler.shouldEnable()) {
-                $("html, body").animate(
+            $("html, body").animate(
                 { scrollTop: $("#jsPlayerIframe").offset().top },
                 1000
             );
