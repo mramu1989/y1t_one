@@ -118,7 +118,7 @@ var Translations = {
             "states": [
                 {
                     "cardId": "f17a656d",
-                    "width": 10
+                    "width": 15
                 }
             ]
         },		
@@ -127,12 +127,12 @@ var Translations = {
             "states": [
                 {
                     "cardId": "f3f02a2a",
-                    "width": 10
+                    "width": 20
                 }
             ]
         },
         {
-            "label": "Need a quotation ",
+            "label": "Need a quotation",
             "states": [
                 {
                     "cardId": "707dfedd",
@@ -149,11 +149,11 @@ var Translations = {
             "states": [
                 {
                     "cardId": "efc30ad8",
-                    "width": 10
+                    "width": 7
                 },
                 {
                     "cardId": "26ec708a",
-                    "width": 10
+                    "width": 7
                 }
             ]
         },
@@ -162,11 +162,11 @@ var Translations = {
             "states": [
                 {
                     "cardId": "d17a2140",
-                    "width": 10
+                    "width": 8
                 },
                 {
                     "cardId": "8861d791",
-                    "width": 10
+                    "width": 8
                 }
             ]
         },		
@@ -175,7 +175,7 @@ var Translations = {
             "states": [
                 {
                     "cardId": "09e4b44f",
-                    "width": 20
+                    "width": 15
                 }
             ]
         }
