@@ -43,8 +43,8 @@ sub {
 }
 
 .header__text {
-    padding-top: 15px;
-    padding-bottom: 20px;
+    /**padding-top: 15px;
+    padding-bottom: 20px;**/
 }
 
 .header__lowbandwidth {

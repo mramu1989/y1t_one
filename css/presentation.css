@@ -62,7 +62,7 @@
     height:75px;
     margin: 10px 0 0;
     background: url("../images/logo.png") no-repeat;
-    background-position: center;
+    background-position: left;
     background-size: contain;
     float:left;
 }
@@ -724,7 +724,7 @@
     }
 
     .header__text {
-        padding:20px 0 10px;
+       /** padding:20px 0 10px;**/
     }
 
     .fullscreen .cta--side .cta__label {
@@ -816,7 +816,7 @@
     }
 
     .header__logo {
-        height: 50px;
+        height: 75px;
     }
 }
 
