@@ -114,33 +114,68 @@ var Translations = {
      */
     "ChapterSettings": [
         {
+            "label": "Welcome",
+            "states": [
+                {
+                    "cardId": "f17a656d",
+                    "width": 20
+                }
+            ]
+        },		
+        {
             "label": "Introduction",
             "states": [
                 {
-                    "cardId": "START",
-                    "width": 20
+                    "cardId": "f3f02a2a",
+                    "width": 15
                 }
             ]
         },
         {
-            "label": "Your Account",
+            "label": "Need a quotation ",
             "states": [
                 {
-                    "cardId": "77a834f0",
-                    "width": 20
+                    "cardId": "707dfedd",
+                    "width": 15
                 },
                 {
-                    "cardId": "c23a68c9",
-                    "width": 20
+                    "cardId": "0213699a",
+                    "width": 15
                 }
             ]
         },
+		{
+            "label": "Questions",
+            "states": [
+                {
+                    "cardId": "efc30ad8",
+                    "width": 15
+                },
+                {
+                    "cardId": "26ec708a",
+                    "width": 15
+                }
+            ]
+        },
+		{
+            "label": "Applying demo",
+            "states": [
+                {
+                    "cardId": "d17a2140",
+                    "width": 15
+                },
+                {
+                    "cardId": "8861d791",
+                    "width": 15
+                }
+            ]
+        },		
         {
             "label": "Thank You",
             "states": [
                 {
-                    "cardId": "7b0123a5",
-                    "width": 40
+                    "cardId": "09e4b44f",
+                    "width": 20
                 }
             ]
         }
