@@ -606,7 +606,7 @@ sub {
     display: block;
     margin: 0 auto;
     padding-top: 30px;
-    padding-bottom: 50px;
+   /** padding-bottom: 50px; */
     width: 2460px;
 }
 
