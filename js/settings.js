@@ -79,5 +79,7 @@ var languageSettings = {
     "defaultLanguage": "zh",
     "languages": {
 		"zh": "Chinese (ZH)",
+        "en": "English (EN)",
+        "es": "Espa&ntilde;ol (ES)"
     }
 };
