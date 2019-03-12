@@ -62,7 +62,7 @@ var Translations = {
         },
         "button3": {
             "card": "956c7c5a",
-            "label": "Email",
+            "label": "电子邮件",
             "icon": "email"
         },
         "button4": {
