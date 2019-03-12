@@ -76,9 +76,10 @@ var timelineSettings = {
  *    the name of the corresponding language file. And the value will be displayed on the language selection menu.
  */
 var languageSettings = {
-    "defaultLanguage": "en",
+    "defaultLanguage": "zh",
     "languages": {
         "en": "English (EN)",
-        "es": "Espa&ntilde;ol (ES)"
+        "es": "Espa&ntilde;ol (ES)",
+		"zh": "Chinese (ZH)"
     }
 };
