@@ -47,7 +47,7 @@ var Translations = {
      */
     "CtaButtonSettings": {
         "button1": {
-            "card": "17fb1654",
+            "url": "http://www.y1t.com/contactus",
             "label": "Contact",
             "icon": "contact"
         },

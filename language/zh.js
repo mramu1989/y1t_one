@@ -51,7 +51,7 @@ var Translations = {
      */
     "CtaButtonSettings": {
         "button1": {
-            "card": "http://www.y1t.com/contactus",
+            "url": "http://www.y1t.com/contactus",
             "label": "联系",
             "icon": "contact"
         },
@@ -62,7 +62,7 @@ var Translations = {
         },
         "button3": {
             "card": "956c7c5a",
-            "label": "电子邮件",
+            "label": "Email",
             "icon": "email"
         },
         "button4": {
@@ -122,7 +122,7 @@ var Translations = {
             "states": [
                 {
                     "cardId": "START",
-                    "width": 15
+                    "width": 12
                 }
             ]
         },		
@@ -135,7 +135,7 @@ var Translations = {
                 },			
                 {
                     "cardId": "f3f02a2a",
-                    "width": 8
+                    "width": 11
                 }
             ]
         },
