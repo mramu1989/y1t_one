@@ -61,7 +61,7 @@ var socialIconSettings = {
  */
 var timelineSettings = {
     "SeenChaptersEnabled": false,
-    "ContrastProgressBarEnabled": false,
+    "ContrastProgressBarEnabled": true,
     "BufferBarEnabled": true,
     "ClosedCaptionsSupported": true,
     "MultiLanguageSupported": true,
@@ -76,8 +76,9 @@ var timelineSettings = {
  *    the name of the corresponding language file. And the value will be displayed on the language selection menu.
  */
 var languageSettings = {
-    "defaultLanguage": "en",
+    "defaultLanguage": "zh",
     "languages": {
+		"zh": "Chinese (ZH)",
         "en": "English (EN)",
         "es": "Espa&ntilde;ol (ES)"
     }
