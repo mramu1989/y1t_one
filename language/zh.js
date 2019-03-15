@@ -93,17 +93,17 @@ var Translations = {
     "PromoSettings": {
         "promo1": {
             "trackingName": "promo1",
-            "url": "http://example.com/",
+            "url": "http://www.4008000000.com/cpchexian/sem/newm.shtml?area=ec03-wm-pingankeji-02&WT.mc_id=ec03-wm-pingankeji-005",
             "label": "Promo (Top)",
-            "desktopImage": "./images/promo_portrait.png",
-            "mobileImage": "./images/promo_landscape.png"
+            "desktopImage": "./images/promo1_portrait.png",
+            "mobileImage": "./images/promo1_landscape.png"
         },
         "promo2": {
             "trackingName": "promo2",
-            "url": "http://example.com/",
+            "url": "http://www.y1t.com/insurance",
             "label": "Promo (Bottom)",
-            "desktopImage": "./images/promo_portrait.png",
-            "mobileImage": "./images/promo_landscape.png"
+            "desktopImage": "./images/promo2_portrait.png",
+            "mobileImage": "./images/promo2_landscape.png"
         }
     },
 
